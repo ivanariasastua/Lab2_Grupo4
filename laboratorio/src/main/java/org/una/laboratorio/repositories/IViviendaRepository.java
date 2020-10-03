@@ -27,4 +27,18 @@ public interface IViviendaRepository extends JpaRepository<Vivienda, Long>{
         @Param("jardin") boolean jardin,
         @Param("garaje") boolean garaje
     );
+    
+    @Query("SELECT v FROM Vivienda " +
+           "WHERE V.superficie >= :superficie v.numeroHabitaciones >= numH and v.numBanos >= :numB and "+
+           "v.terraza = :terraza and v.piscina = :piscina and v.jardin = :jardin and v.garaje = :garaje"
+    )
+    public List<Vivienda> filterBySuperficieNumHabitacionesNumBanosTerrazaPiscinaJardinGaraje(
+        @Param("superficie") Float superficie,
+        @Param("numH") Integer numH,
+        @Param("numBanos") Integer numBanos,
+        @Param("terraza") boolean terraza,
+        @Param("piscina") boolean piscina, 
+        @Param("jardin") boolean jardin,
+        @Param("garaje") boolean garaje
+    );
 }
