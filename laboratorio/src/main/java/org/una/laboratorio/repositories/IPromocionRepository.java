@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.repositories;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,4 +29,18 @@ public interface IPromocionRepository extends JpaRepository<Promocion, Long>{
         @Param("canton") String canton,
         @Param("importe") Float importe
     ); 
+    
+    @Query("SELECT p FROM Promocion "+
+           "WHERE p.fechaRegistro BETWEEN :fechaInicio and :fechaFinal "+
+           "and UPPER(p.poblacion.provincia) = UPPER(:provincia) "+
+           "and UPPER(p.poblacion.canto) = UPPER(:canton) "+
+           "and UPPER(p.poblacion.provincia) = UPPER(:distrito)"
+    )
+    public List<Promocion> findByProvinciaCantonDistritoFechaRegistro(
+        @Param("provincia") String provicia,
+        @Param("canton") String canton,
+        @Param("distrito") String distrito,
+        @Param("fechaInicio") Date fechaInicio,
+        @Param("fechaInicio") Date fechaFinal
+    );
 }
