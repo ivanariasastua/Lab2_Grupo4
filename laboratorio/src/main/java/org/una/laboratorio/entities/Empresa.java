@@ -63,7 +63,6 @@ public class Empresa implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<PromocionEmpresa> promocionesEmpresas;
     
-    
     @PrePersist
     public void prePersist() {
         estado = true;
