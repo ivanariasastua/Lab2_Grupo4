@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.una.laboratorio.services.IPoblacionService;
 
 @RestController
-@RequestMapping("/viviendas")
+@RequestMapping("/poblacion")
 public class PoblacionController {
     
     @Autowired

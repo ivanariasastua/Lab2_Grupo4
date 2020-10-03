@@ -17,11 +17,11 @@ import org.una.laboratorio.entities.Empresa;
  */
 public interface IEmpresaRepository extends JpaRepository<Empresa, Long>{
     
-    @Query("SELECT e FROM Empresas " +
-           "JOIN e.promocionesEmpresas pro pro.empresa.id = e.id " +
-           "WHERE UPPER(pro.promocion.poblacion.provincia) = UPPER(:provicia) and " +
-           "UPPER(pro.promocion.poblacion.canton) = UPPER(:canton) and " +
-           "and pro.importe >= :importe")
+    @Query("SELECT e FROM Empresa e " +
+           "JOIN e.promocionesEmpresas con ON con.empresa.id = e.id " +
+           "WHERE UPPER(con.promocion.poblacion.provincia) = UPPER(:provincia) and " +
+           "UPPER(con.promocion.poblacion.canton) = UPPER(:canton) and " +
+           "con.importe >= :importe")
     public List<Empresa> filtroEmpresa(
         @Param("provincia") String provicia,
         @Param("canton") String canton,
