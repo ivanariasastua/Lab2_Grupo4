@@ -5,10 +5,13 @@
  */
 package org.una.laboratorio.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.una.laboratorio.entities.Empresa;
+
 /**
  *
  * @author Ivan Josué Arias Astua
  */
-public interface IPromocionRepository {
+public interface IPromocionRepository extends JpaRepository<Empresa, Long>{
     
 }
