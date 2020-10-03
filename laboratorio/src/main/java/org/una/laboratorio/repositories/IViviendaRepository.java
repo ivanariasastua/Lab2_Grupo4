@@ -5,6 +5,9 @@
  */
 package org.una.laboratorio.repositories;
 
-public interface IViviendaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.una.laboratorio.entities.Vivienda;
+
+public interface IViviendaRepository extends JpaRepository<Vivienda, Long>{
     
 }
