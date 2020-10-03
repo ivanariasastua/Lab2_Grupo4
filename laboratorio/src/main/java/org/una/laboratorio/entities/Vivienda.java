@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,7 @@ public class Vivienda implements Serializable{
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="promocion")
+    @JsonBackReference
     private Promocion promocion;
     
     @Column(name = "superficie")

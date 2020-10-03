@@ -5,10 +5,13 @@
  */
 package org.una.laboratorio.services;
 
-/**
- *
- * @author Dios
- */
+import java.util.List;
+import java.util.Optional;
+import org.una.laboratorio.dto.ViviendaDTO;
+
 public interface IViviendaService {
     
+    public Optional<List<ViviendaDTO>> findAll();
+
+    public Optional<ViviendaDTO> findById(Long id);
 }
