@@ -26,7 +26,7 @@ import lombok.ToString;
  * @author cordo
  */
 @Entity
-@Table(name = "lab2_Empresa")
+@Table(name = "lab2_Empresas")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -55,11 +55,14 @@ public class Empresa implements Serializable {
     private String fax;
     
     @Column
-    private double correo_electronico;
+    private String correo_electronico;
     
     @Column
     private boolean estado;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private List<PromocionEmpresa> promocionesEmpresas;
+    
     
     @PrePersist
     public void prePersist() {

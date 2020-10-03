@@ -40,7 +40,7 @@ public class PromocionEmpresa implements Serializable {
     @JoinColumn(name="promocion")
     private Promocion promocion;
     
-//    @ManyToOne
-//    @JoinColumn(name="empresa")
-//    private Empresa empresa;
+    @ManyToOne
+    @JoinColumn(name="empresa")
+    private Empresa empresa;
 }
