@@ -5,7 +5,6 @@
  */
 package org.una.laboratorio.dto;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +25,4 @@ public class PoblacionDTO {
     private String canton;
     private String distrito;
     private String codigoPostal;
-    private List<PromocionDTO> promociones;
 }

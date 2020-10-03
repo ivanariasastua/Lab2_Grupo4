@@ -69,14 +69,11 @@ public class Promocion implements Serializable {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="poblacion")
-    @JsonBackReference
     private Poblacion poblacion;
     
-    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "promocion")
     private List<Vivienda> viviendas;
     
-    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
     private List<Contrato> empresas;
 }

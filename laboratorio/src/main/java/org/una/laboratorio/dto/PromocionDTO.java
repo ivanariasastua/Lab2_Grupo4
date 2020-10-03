@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.dto;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.Date;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,9 @@ public class PromocionDTO {
     private Date fechaRegistro;
     private Boolean estado;
     private Date fechaModificacion;
+    @JsonManagedReference
     private List<ViviendaDTO> viviendas;
+    @JsonManagedReference
     private List<ContratoDTO> empresas;
     private PoblacionDTO poblacion;
 }

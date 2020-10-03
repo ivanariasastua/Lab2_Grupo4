@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ import lombok.ToString;
 public class ContratoDTO {
     
     private Long id;
+    @JsonBackReference
     private PromocionDTO promocion;
     private EmpresaDTO empresa;
     private Float importe;

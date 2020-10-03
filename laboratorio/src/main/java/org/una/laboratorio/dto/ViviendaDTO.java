@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,8 @@ import lombok.ToString;
 @ToString
 public class ViviendaDTO {
     private Long id;
-    //private PromocionDTO promocion;
+    @JsonBackReference
+    private PromocionDTO promocion;
     private Float superficie;
     private Integer numHabitaciones;
     private Integer numbanos;
