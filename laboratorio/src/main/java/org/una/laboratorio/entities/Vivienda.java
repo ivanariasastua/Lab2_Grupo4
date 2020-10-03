@@ -8,6 +8,7 @@ package org.una.laboratorio.entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,18 +35,18 @@ public class Vivienda implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToOne 
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="promocion")
     private Promocion promocion;
     
     @Column(name = "superficie")
-    private float supercifie;
+    private Float supercifie;
     
     @Column(name = "numero_habitaciones")
-    private int numHabitaciones;
+    private Integer numHabitaciones;
     
     @Column(name = "numero_banos")
-    private int numBanos;
+    private Integer numBanos;
     
     @Lob
     @Column(columnDefinition="MEDIUMBLOB")
@@ -56,22 +57,22 @@ public class Vivienda implements Serializable{
     private Byte[] foto;
     
     @Column(name = "precio")
-    private double precio;
+    private Float precio;
     
     @Column(name = "terraza")
-    private boolean terraza;
+    private Boolean terraza;
     
     @Column(name = "jardin")
-    private boolean jardin;
+    private Boolean jardin;
     
     @Column(name = "piscina")
-    private boolean piscina;
+    private Boolean piscina;
     
     @Column(name = "garaje")
-    private boolean garaje;
+    private Boolean garaje;
     
     @Column(name = "estado")
-    private boolean estado;
+    private Boolean estado;
     
     @PrePersist
     public void prePersist(){
