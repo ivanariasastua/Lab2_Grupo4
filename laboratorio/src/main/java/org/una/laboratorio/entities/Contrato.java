@@ -7,6 +7,7 @@ package org.una.laboratorio.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,12 +27,12 @@ import lombok.ToString;
  * @author Ivan Josué Arias Astua
  */
 @Entity
-@Table(name = "lab2_Promociones_Empresas")
+@Table(name = "lab2_Contratos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PromocionEmpresa implements Serializable {
+public class Contrato implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
@@ -47,4 +49,15 @@ public class PromocionEmpresa implements Serializable {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="empresa")
     private Empresa empresa;
+    
+    @Column
+    private Float importe;
+    
+    @Column
+    private boolean estado;
+    
+    @PrePersist
+    public void prePersist() {
+        estado = true;
+    }
 }

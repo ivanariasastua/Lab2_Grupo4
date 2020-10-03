@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.una.laboratorio.services.IPromocionService;
+import org.una.laboratorio.services.IContratoService;
 
 /**
  *
  * @author cordo
  */
 @RestController
-@RequestMapping("/promociones")
-public class PromocionController {
+@RequestMapping("/contratos")
+public class ContratoController {
     
     @Autowired
-    private IPromocionService promocionService;
+    private IContratoService contratoService;
     
     @GetMapping("/get")
     public @ResponseBody
     ResponseEntity<?> findAll() {
         try {
-            return new ResponseEntity<>(promocionService.findAll(), HttpStatus.OK);
+            return new ResponseEntity<>(contratoService.findAll(), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -39,7 +39,7 @@ public class PromocionController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable(value = "id") Long id) {
         try {
-            return new ResponseEntity<>(promocionService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(contratoService.findById(id), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }

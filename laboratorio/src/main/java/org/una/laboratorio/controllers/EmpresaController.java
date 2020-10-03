@@ -20,7 +20,7 @@ import org.una.laboratorio.services.IEmpresaService;
  * @author cordo
  */
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/empresas")
 public class EmpresaController {
     
     @Autowired

@@ -6,12 +6,20 @@
 package org.una.laboratorio.dto;
 
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 /**
  *
  * @author Ivan Josué Arias Astua
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor 
+@ToString
 public class PoblacionDTO {
     private Long id;
     private String provincia;

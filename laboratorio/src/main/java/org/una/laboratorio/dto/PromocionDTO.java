@@ -31,6 +31,6 @@ public class PromocionDTO {
     private Boolean estado;
     private Date fechaModificacion;
     private List<ViviendaDTO> viviendas;
-    private List<PromocionEmpresaDTO> empresas;
+    private List<ContratoDTO> empresas;
     private PoblacionDTO poblacion;
 }
