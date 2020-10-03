@@ -18,7 +18,7 @@ import org.una.laboratorio.entities.Empresa;
 public interface IEmpresaRepository extends JpaRepository<Empresa, Long>{
     
     @Query("SELECT e FROM Empresas " +
-           "JOIN e.promociones pro pro.empresa.id = e.id " +
+           "JOIN e.promocionesEmpresas pro pro.empresa.id = e.id " +
            "WHERE UPPER(pro.promocion.poblacion.provincia) = UPPER(:provicia) and " +
            "UPPER(pro.promocion.poblacion.canton) = UPPER(:canton) and " +
            "and pro.importe >= :importe")

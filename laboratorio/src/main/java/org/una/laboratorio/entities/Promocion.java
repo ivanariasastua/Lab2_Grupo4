@@ -67,11 +67,6 @@ public class Promocion implements Serializable {
     
     @Column
     private Boolean estado;
-
-    @Column(name = "fecha_modificacion")
-    @Setter(AccessLevel.NONE)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaModificacion;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="poblacion")
