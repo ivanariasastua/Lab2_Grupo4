@@ -5,6 +5,8 @@
  */
 package org.una.laboratorio.dto;
 
+import java.util.List;
+
 
 /**
  *
@@ -16,4 +18,5 @@ public class PoblacionDTO {
     private String canton;
     private String distrito;
     private String codigoPostal;
+    private List<PromocionDTO> promociones;
 }

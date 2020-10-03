@@ -13,21 +13,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.una.laboratorio.services.IViviendaService;
-
+import org.una.laboratorio.services.IPoblacionService;
 
 @RestController
 @RequestMapping("/viviendas")
-public class ViviendaController {
+public class PoblacionController {
     
     @Autowired
-    private IViviendaService viviendaService;
+    IPoblacionService poblacionService;
     
     @GetMapping()
     public @ResponseBody
     ResponseEntity<?> findAll() {
         try{
-            return new ResponseEntity(viviendaService.findAll(), HttpStatus.OK);
+            return new ResponseEntity(poblacionService.findAll(), HttpStatus.OK);
         }catch(Exception ex){
             return new ResponseEntity<>(ex.getClass(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -36,7 +35,7 @@ public class ViviendaController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable(value = "id") Long id) {
         try{
-            return new ResponseEntity<>(viviendaService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(poblacionService.findById(id), HttpStatus.OK);
         }catch(Exception ex){
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }

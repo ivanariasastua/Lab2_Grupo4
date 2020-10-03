@@ -13,31 +13,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.una.laboratorio.services.IViviendaService;
+import org.una.laboratorio.services.IPromocionService;
 
-
+/**
+ *
+ * @author cordo
+ */
 @RestController
-@RequestMapping("/viviendas")
-public class ViviendaController {
+@RequestMapping("/promocion")
+public class PromocionController {
     
     @Autowired
-    private IViviendaService viviendaService;
+    private IPromocionService promocionService;
     
-    @GetMapping()
+    @GetMapping("/get")
     public @ResponseBody
     ResponseEntity<?> findAll() {
-        try{
-            return new ResponseEntity(viviendaService.findAll(), HttpStatus.OK);
-        }catch(Exception ex){
-            return new ResponseEntity<>(ex.getClass(), HttpStatus.INTERNAL_SERVER_ERROR);
+        try {
+            return new ResponseEntity<>(promocionService.findAll(), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable(value = "id") Long id) {
-        try{
-            return new ResponseEntity<>(viviendaService.findById(id), HttpStatus.OK);
-        }catch(Exception ex){
+        try {
+            return new ResponseEntity<>(promocionService.findById(id), HttpStatus.OK);
+        } catch (Exception ex) {
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

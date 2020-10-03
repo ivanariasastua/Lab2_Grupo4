@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
@@ -16,7 +17,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -53,9 +56,6 @@ public class Promocion implements Serializable {
     @Column(length = 100)
     private String nombre;
     
-    @Column(length = 100)
-    private String ubicacion;
-    
     @Lob
     @Column(columnDefinition="MEDIUMBLOB")
     private Byte[] plano;
@@ -72,6 +72,11 @@ public class Promocion implements Serializable {
     @Setter(AccessLevel.NONE)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaModificacion;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="poblacion")
+    @JsonBackReference
+    private Poblacion poblacion;
     
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "promocion")

@@ -25,11 +25,11 @@ public class PromocionDTO {
     private Long id;
     private String codigoInterno;
     private String nombre;
-    private String ubicacion;
     private Byte[] plano;
     private Date fechaRegistro;
     private Boolean estado;
     private Date fechaModificacion;
     private List<ViviendaDTO> viviendas;
     private List<PromocionEmpresaDTO> empresas;
+    private PoblacionDTO poblacion;
 }
