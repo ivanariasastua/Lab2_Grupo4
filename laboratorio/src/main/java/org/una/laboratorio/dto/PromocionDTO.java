@@ -25,7 +25,6 @@ public class PromocionDTO {
     private Long id;
     private String codigoInterno;
     private String nombre;
-    private String ubicacion;
     private Byte[] plano;
     private Date fechaRegistro;
     private Boolean estado;
