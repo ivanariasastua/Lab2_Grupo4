@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,19 @@ public class PromocionServiceImplementation implements IPromocionService{
     @Transactional(readOnly = true)
     public Optional<PromocionDTO> findById(Long id) {
         return ServiceConvertionHelper.oneToOptionalDto(promocionRepository.findById(id), PromocionDTO.class);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<List<PromocionDTO>> filtroPromocion(String provincia, String canton, Float importe) {
+        return ServiceConvertionHelper.findList(promocionRepository.filtroPromocion(provincia, canton, importe), PromocionDTO.class);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<List<PromocionDTO>> findByProvinciaCantonDistritoFechaRegistro(String provincia, String canton, String distrito,
+                                                                                   Date fechaInicio, Date fechaFinal) {
+        return ServiceConvertionHelper.findList(promocionRepository.findByProvinciaCantonDistritoFechaRegistro(provincia, canton, distrito,
+                                                                                             fechaInicio, fechaFinal), PromocionDTO.class);
     }
 }

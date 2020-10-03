@@ -26,7 +26,7 @@ public class ContratoController {
     @Autowired
     private IContratoService contratoService;
     
-    @GetMapping("/get")
+    @GetMapping()
     public @ResponseBody
     ResponseEntity<?> findAll() {
         try {

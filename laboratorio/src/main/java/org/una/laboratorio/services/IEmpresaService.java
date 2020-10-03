@@ -18,4 +18,6 @@ public interface IEmpresaService {
     public Optional<List<EmpresaDTO>> findAll();
 
     public Optional<EmpresaDTO> findById(Long id);
+    
+    public Optional<List<EmpresaDTO>> filtroEmpresa(String provincia, String canton, Float importe);
 }

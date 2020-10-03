@@ -36,4 +36,9 @@ public class EmpresaServiceImplementation implements IEmpresaService {
         return ServiceConvertionHelper.oneToOptionalDto(empresaRepository.findById(id), EmpresaDTO.class);
     }
 
+    @Override
+    public Optional<List<EmpresaDTO>> filtroEmpresa(String provincia, String canton, Float importe) {
+        return ServiceConvertionHelper.findList(empresaRepository.filtroEmpresa(provincia, canton, importe), EmpresaDTO.class);
+    }
+
 }

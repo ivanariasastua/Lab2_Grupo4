@@ -26,7 +26,7 @@ public class EmpresaController {
     @Autowired
     private IEmpresaService empresaService;
     
-    @GetMapping("/get")
+    @GetMapping()
     public @ResponseBody
     ResponseEntity<?> findAll() {
         try {
@@ -40,6 +40,17 @@ public class EmpresaController {
     public ResponseEntity<?> findById(@PathVariable(value = "id") Long id) {
         try {
             return new ResponseEntity<>(empresaService.findById(id), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @GetMapping("filtro/{provincia}/{canton}/{importe}")
+    public ResponseEntity<?> filtroEmpresa(@PathVariable(value = "provincia") String provincia,
+                                      @PathVariable(value = "canton") String canton,
+                                      @PathVariable(value = "importe") Float importe) {
+        try {
+            return new ResponseEntity<>(empresaService.filtroEmpresa(provincia, canton, importe), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }

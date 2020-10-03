@@ -31,5 +31,17 @@ public class ViviendaServiceImplementation implements IViviendaService{
     public Optional<ViviendaDTO> findById(Long id) {
         return ServiceConvertionHelper.oneToOptionalDto(Viviendarepository.findById(id), ViviendaDTO.class);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<List<ViviendaDTO>> filtroVivienda(String provincia, String canton, boolean terraza, boolean piscina, boolean jardin, boolean garaje) {
+        return ServiceConvertionHelper.findList(Viviendarepository.filtroVivienda(provincia, canton, terraza, piscina, jardin, garaje), ViviendaDTO.class);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<List<ViviendaDTO>> findBySuperficieNumHabitacionesNumBanosTerrazaPiscinaJardinGaraje(Float superficie, Integer numH, Integer numBanos, boolean terraza, boolean piscina, boolean jardin, boolean garaje) {
+        return ServiceConvertionHelper.findList(Viviendarepository.filterBySuperficieNumHabitacionesNumBanosTerrazaPiscinaJardinGaraje(superficie, numH, numBanos, terraza, piscina, jardin, garaje), ViviendaDTO.class);
+    }
     
 }

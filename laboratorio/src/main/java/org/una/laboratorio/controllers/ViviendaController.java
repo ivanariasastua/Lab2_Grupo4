@@ -41,4 +41,35 @@ public class ViviendaController {
             return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+    @GetMapping("filtro/{provincia}/{canton}/{terraza}/{piscina}/{jardin}/{garaje}")
+    public ResponseEntity<?> filtroVivienda(@PathVariable(value = "provincia") String provincia,
+                                            @PathVariable(value = "canton") String canton,
+                                            @PathVariable(value = "terraza") boolean terraza,
+                                            @PathVariable(value = "piscina") boolean piscina,
+                                            @PathVariable(value = "jardin") boolean jardin,
+                                            @PathVariable(value = "garaje") boolean garaje) {
+        try{
+            return new ResponseEntity<>(viviendaService.filtroVivienda(provincia, canton, terraza, piscina, jardin, garaje), HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @GetMapping("find/{superficie}/{numH}/{numBanos}/{terraza}/{piscina}/{jardin}/{garaje}")
+    public ResponseEntity<?> filterBySuperficieNumHabitacionesNumBanosTerrazaPiscinaJardinGaraje(
+                                            @PathVariable(value = "superficie") Float superficie,
+                                            @PathVariable(value = "numH") Integer numH,
+                                            @PathVariable(value = "numBanos") Integer numBanos,
+                                            @PathVariable(value = "terraza") boolean terraza,
+                                            @PathVariable(value = "piscina") boolean piscina,
+                                            @PathVariable(value = "jardin") boolean jardin,
+                                            @PathVariable(value = "garaje") boolean garaje) {
+        try{
+            return new ResponseEntity<>(viviendaService.findBySuperficieNumHabitacionesNumBanosTerrazaPiscinaJardinGaraje
+                                       (superficie, numH, numBanos, terraza, piscina, jardin, garaje), HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
