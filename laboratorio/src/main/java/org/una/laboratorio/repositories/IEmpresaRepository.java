@@ -14,4 +14,5 @@ import org.una.laboratorio.entities.Empresa;
  */
 public interface IEmpresaRepository extends JpaRepository<Empresa, Long>{
     
+
 }
