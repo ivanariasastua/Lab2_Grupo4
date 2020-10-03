@@ -56,9 +56,6 @@ public class Promocion implements Serializable {
     @Column(length = 100)
     private String nombre;
     
-    @Column(length = 100)
-    private String ubicacion;
-    
     @Lob
     @Column(columnDefinition="MEDIUMBLOB")
     private Byte[] plano;
