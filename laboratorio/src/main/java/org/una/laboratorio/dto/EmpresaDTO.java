@@ -26,6 +26,6 @@ public class EmpresaDTO {
     private String direccion;
     private String telefono;
     private String fax;
-    private double correo_electronico;
+    private String correo_electronico;
     private boolean estado;
 }

@@ -79,5 +79,9 @@ public class Promocion implements Serializable {
     
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "promicion")
+    private List<Vivienda> viviendas;
+    
+	@JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
     private List<PromocionEmpresa> empresas;
 }

@@ -5,6 +5,26 @@
  */
 package org.una.laboratorio.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor 
+@ToString
 public class ViviendaDTO {
-    
+    private Long id;
+    //private PromocionDTO promocion;
+    private Float superficie;
+    private Integer numHabitaciones;
+    private Integer numbanos;
+    private Byte[] plano;
+    private Byte[] foto;
+    private Float precio;
+    private Boolean terraza;
+    private Boolean jardin;
+    private Boolean piscina;
+    private Boolean garaje;
 }
