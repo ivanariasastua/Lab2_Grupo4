@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -60,6 +61,7 @@ public class Empresa implements Serializable {
     @Column
     private boolean estado;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<Contrato> promocionesEmpresas;
     

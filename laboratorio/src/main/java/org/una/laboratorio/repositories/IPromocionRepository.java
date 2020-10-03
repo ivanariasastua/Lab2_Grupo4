@@ -34,7 +34,7 @@ public interface IPromocionRepository extends JpaRepository<Promocion, Long>{
            "WHERE p.fechaRegistro BETWEEN :fechaInicio and :fechaFinal "+
            "and UPPER(p.poblacion.provincia) = UPPER(:provincia) "+
            "and UPPER(p.poblacion.canton) = UPPER(:canton) "+
-           "and UPPER(p.poblacion.provincia) = UPPER(:distrito)"
+           "and UPPER(p.poblacion.distrito) = UPPER(:distrito)"
     )
     public List<Promocion> findByProvinciaCantonDistritoFechaRegistro(
         @Param("provincia") String provicia,
