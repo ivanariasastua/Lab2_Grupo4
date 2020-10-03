@@ -17,7 +17,7 @@ import org.una.laboratorio.services.IViviendaService;
 
 
 @RestController
-@RequestMapping("/tramites_registrados")
+@RequestMapping("/viviendas")
 public class ViviendaController {
     
     @Autowired
