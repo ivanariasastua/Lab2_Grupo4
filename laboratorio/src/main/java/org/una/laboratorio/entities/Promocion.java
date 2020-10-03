@@ -5,9 +5,9 @@
  */
 package org.una.laboratorio.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javassist.bytecode.ByteArray;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,7 +37,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Promocion {
+public class Promocion implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
@@ -73,4 +73,7 @@ public class Promocion {
     
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
 //    private List<Vivienda> viviendas;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promicion")
+    private List<PromocionEmpresa> empresas;
 }
