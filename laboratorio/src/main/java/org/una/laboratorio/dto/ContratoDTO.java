@@ -5,6 +5,7 @@
  */
 package org.una.laboratorio.dto;
 
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +26,5 @@ public class ContratoDTO {
     private EmpresaDTO empresa;
     private Float importe;
     private boolean estado;
+    private Date fechaRegistro;
 }
