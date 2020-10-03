@@ -71,9 +71,9 @@ public class Promocion implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaModificacion;
     
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
-//    private List<Vivienda> viviendas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
+    private List<Vivienda> viviendas;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promicion")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promocion")
     private List<PromocionEmpresa> empresas;
 }
