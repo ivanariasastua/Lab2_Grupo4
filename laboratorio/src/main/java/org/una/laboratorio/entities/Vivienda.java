@@ -42,7 +42,7 @@ public class Vivienda implements Serializable{
     private Promocion promocion;
     
     @Column(name = "superficie")
-    private Float supercifie;
+    private Float superficie;
     
     @Column(name = "numero_habitaciones")
     private Integer numHabitaciones;

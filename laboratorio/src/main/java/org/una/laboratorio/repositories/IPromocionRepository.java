@@ -18,11 +18,11 @@ import org.una.laboratorio.entities.Promocion;
  */
 public interface IPromocionRepository extends JpaRepository<Promocion, Long>{
     
-    @Query("SELECT p FROM Promocion " +
+    @Query("SELECT p FROM Promocion p " +
            "JOIN p.empresas emp ON p.id = emp.promocion.id " +
-           "WHERE UPPER(p.poblacion.provincia) = UPPER(:provicia) and " +
+           "WHERE UPPER(p.poblacion.provincia) = UPPER(:provincia) and " +
            "UPPER(p.poblacion.canton) = UPPER(:canton) and " +
-           "and emp.importe >= :importe"
+           "emp.importe >= :importe"
     )
     public List<Promocion> filtroPromocion(
         @Param("provincia") String provicia,
@@ -30,10 +30,10 @@ public interface IPromocionRepository extends JpaRepository<Promocion, Long>{
         @Param("importe") Float importe
     ); 
     
-    @Query("SELECT p FROM Promocion "+
+    @Query("SELECT p FROM Promocion p "+
            "WHERE p.fechaRegistro BETWEEN :fechaInicio and :fechaFinal "+
            "and UPPER(p.poblacion.provincia) = UPPER(:provincia) "+
-           "and UPPER(p.poblacion.canto) = UPPER(:canton) "+
+           "and UPPER(p.poblacion.canton) = UPPER(:canton) "+
            "and UPPER(p.poblacion.provincia) = UPPER(:distrito)"
     )
     public List<Promocion> findByProvinciaCantonDistritoFechaRegistro(
