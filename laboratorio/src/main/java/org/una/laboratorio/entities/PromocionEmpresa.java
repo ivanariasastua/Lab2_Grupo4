@@ -5,8 +5,10 @@
  */
 package org.una.laboratorio.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,11 +38,13 @@ public class PromocionEmpresa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="promocion")
     private Promocion promocion;
     
-//    @ManyToOne
-//    @JoinColumn(name="empresa")
-//    private Empresa empresa;
+    @JsonBackReference
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="empresa")
+    private Empresa empresa;
 }
